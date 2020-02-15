@@ -10,7 +10,7 @@ DROP TABLE IF EXISTS titles;
 -- create tales and import csv files (so fun)
 
 CREATE TABLE departments (
-    dept_no VARCHAR NOT NULL,
+    dept_no VARCHAR PRIMARY KEY NOT NULL,
     dept_name VARCHAR NOT NULL
     );
 
@@ -19,6 +19,8 @@ CREATE TABLE dept_emp (
     dept_no VARCHAR NOT NULL,
     from_date DATE NOT NULL,
     to_date DATE NOT NULL
+    FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
+    FOREIGN KEY (dept_no) REFERENCES departments(dept_no)
     );
 
 CREATE TABLE dept_manager (
@@ -26,10 +28,12 @@ CREATE TABLE dept_manager (
 	emp_no INT,
     from_date DATE NOT NULL,
     to_date DATE NOT NULL
+    FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
+    FOREIGN KEY (dept_no) REFERENCES departments(dept_no)
     );
 
 CREATE TABLE employees (
-    emp_no INT,
+    emp_no INT PRIMARY KEY,
     birth_date DATE NOT NULL,
     first_name VARCHAR NOT NULL,
     last_name VARCHAR NOT NULL,
@@ -42,6 +46,7 @@ CREATE TABLE salaries (
     salary INT,
     from_date DATE NOT NULL,
     to_date DATE NOT NULL
+    FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
     );
 
 CREATE TABLE titles (
@@ -49,6 +54,7 @@ CREATE TABLE titles (
     title VARCHAR NOT NULL,
     from_date DATE NOT NULL,
     to_date DATE NOT NULL
+    FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
     );
 
 -- select statements to explore table
