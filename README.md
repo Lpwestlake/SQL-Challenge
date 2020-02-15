@@ -1,7 +1,7 @@
 # SQL-Challenge
 
 ## Submission
-# see below for file names associated with the requested submissions.
+# see below for file names associated with the requested submissions.  All necessary files are in the "EmployeeSQL" folder
 
 * Create an image file of your ERD.
 
